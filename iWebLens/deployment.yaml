@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adnan-deployment
+  labels:
+    app: adnan
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adnan
+  template:
+    metadata:
+      labels:
+        app: adnan
+    spec:
+      containers:
+      - name: adnan-container
+        image: adnan
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 30100
+        resources:
+          limits:
+            cpu: "0.5"
